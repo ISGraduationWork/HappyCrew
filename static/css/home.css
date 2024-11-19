@@ -1,0 +1,251 @@
+/* home.css */
+/* 全体のページスタイル */
+body {
+    font-family: 'Roboto', sans-serif; /* フォントの設定 */
+    margin: 0; /* ページのマージンをリセット */
+    padding: 0; /* ページのパディングをリセット */
+    background-color: #f5f5f5; /* 背景色の設定 */
+}
+
+/* ヘッダー部分 */
+header {
+    background-color: #fff; /* 背景色 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 影の設定 */
+    display: flex; /* Flexboxレイアウト */
+    justify-content: space-between; /* コンテンツの間隔を均等に配置 */
+    align-items: center; /* アイテムの中央揃え */
+    padding: 0 20px; /* 内側のパディング */
+    height: 64px; /* 高さ */
+}
+
+/* ロゴのスタイル */
+.logo {
+    font-size: 22px; /* フォントサイズ */
+    font-weight: bold; /* 太字 */
+    color: #1a73e8; /* テキスト色 */
+}
+
+.user-name {
+    text-decoration: none; /* 普段は下線をなしに */
+    color: #1a73e8; /* テキスト色 */
+}
+
+.user-name:hover {
+    text-decoration: underline; /* ホバー時に下線を追加 */
+}
+
+/* ナビゲーションメニュー */
+nav ul {
+    list-style-type: none; /* リストスタイルをなしに */
+    display: flex; /* Flexboxレイアウト */
+}
+
+nav ul li {
+    margin-left: 20px; /* アイテム間のマージン */
+}
+
+nav ul li a {
+    text-decoration: none; /* リンクの下線をなしに */
+    color: #5f6368; /* テキスト色 */
+    font-weight: 500; /* フォントの太さ */
+}
+
+/* メインコンテンツ */
+main {
+    max-width: 1200px; /* 最大幅 */
+    margin: 20px auto; /* 上下左右のマージンを自動で調整 */
+    padding: 20px; /* 内側のパディング */
+}
+
+/* クラスカードのグリッドレイアウト */
+.classes-grid {
+    display: grid; /* グリッドレイアウト */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* 自動調整の列数 */
+    gap: 20px; /* アイテム間の間隔 */
+}
+
+/* クラスカード */
+.class-card {
+    background-color: #fff; /* 背景色 */
+    border-radius: 8px; /* 角丸 */
+    overflow: hidden; /* 内側の要素を隠す */
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 2px 6px 2px rgba(60,64,67,0.15); /* 影の設定 */
+}
+
+/* クラスカードのヘッダー部分 */
+.class-header {
+    background-color: #1a73e8; /* 背景色 */
+    color: #fff; /* テキスト色 */
+    padding: 20px; /* 内側のパディング */
+}
+
+.class-header h2 {
+    margin: 0; /* マージンをリセット */
+    font-size: 24px; /* フォントサイズ */
+}
+
+.class-header p {
+    margin: 5px 0 0; /* 上下のマージン */
+    font-size: 14px; /* フォントサイズ */
+}
+
+/* クラスカードのアクション部分 */
+.class-actions {
+    position: absolute; /* 絶対位置 */
+    top: 0; /* 上端からの位置 */
+    right: 0; /* 右端からの位置 */
+    padding: 10px; /* 内側のパディング */
+}
+
+.class-actions a {
+    color: #5f6368; /* テキスト色 */
+    text-decoration: none; /* リンクの下線をなしに */
+    margin-left: 10px; /* 左側のマージン */
+}
+
+.class-menu {
+    display: none; /* 表示を隠す */
+    position: absolute; /* 絶対位置 */
+    top: 40px; /* 上からの距離 */
+    right: 0; /* 右からの距離 */
+    background: #fff; /* 背景色 */
+    border-radius: 4px; /* 角の丸み */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* 影の設定 */
+    z-index: 20; /* Zインデックス */
+}
+
+/* クラスを追加するボタン */
+.add-class {
+    display: flex; /* Flexboxレイアウト */
+    justify-content: center; /* コンテンツの中央揃え */
+    align-items: center; /* アイテムの中央揃え */
+    background-color: #fff; /* 背景色 */
+    border-radius: 8px; /* 角丸 */
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 2px 6px 2px rgba(60,64,67,0.15); /* 影の設定 */
+    cursor: pointer; /* カーソルをポインターに */
+    transition: transform 0.2s ease-in-out; /* アニメーションの設定 */
+}
+
+.add-class:hover {
+    transform: translateY(-5px); /* ホバー時の移動 */
+}
+
+.add-class-btn {
+    display: flex; /* Flexboxレイアウト */
+    flex-direction: column; /* 垂直方向に配置 */
+    align-items: center; /* アイテムの中央揃え */
+    justify-content: center; /* コンテンツの中央揃え */
+    width: 100%; /* 幅 */
+    height: 100%; /* 高さ */
+    padding: 20px; /* 内側のパディング */
+    color: #1a73e8; /* テキスト色 */
+}
+
+.add-class-btn .material-icons {
+    font-size: 50px; /* アイコンのフォントサイズ */
+    margin-bottom: 15px; /* 下側のマージン */
+}
+
+.add-class-btn span:last-child {
+    font-size: 14px; /* テキストのフォントサイズ */
+}
+
+/* ログアウトボタンのスタイル */
+.logout-btn {
+    position: fixed; /* 固定位置 */
+    bottom: 20px; /* 下側の位置 */
+    left: 50%; /* 左側からの位置 */
+    transform: translateX(-50%); /* 中央揃え */
+    background-color: #1a73e8; /* 背景色 */
+    color: #fff; /* テキスト色 */
+    padding: 10px 20px; /* 内側のパディング */
+    border-radius: 5px; /* 角丸 */
+    text-decoration: none; /* リンクの下線をなしに */
+    font-weight: bold; /* 太字 */
+}
+
+.logout-btn:hover {
+    background-color: #0d47a1; /* ホバー時の背景色 */
+    color: #fff; /* ホバー時のテキスト色 */
+}
+
+/* クラスカードのアクション部分 */
+.class-actions {
+    display: flex; /* Flexboxレイアウト */
+    justify-content: space-between; /* コンテンツを均等に配置 */
+    padding: 10px; /* 内側のパディング */
+    position: relative; /* 相対位置 */
+}
+
+.more-options-btn {
+  background: none; /* 背景を透明に */
+  border: none; /* ボーダーをなしに */
+  cursor: pointer; /* カーソルをポインターに */
+  padding: 0; /* 内側のパディングをリセット */
+  color: #757575; /* テキスト色 */
+}
+
+.more-options-btn:hover {
+  color: #212121; /* ホバー時のテキスト色 */
+}
+
+/* クラスカードのリンク */
+.class-card-link {
+    text-decoration: none; /* リンクの下線をなしに */
+    color: inherit; /* テキスト色を継承 */
+}
+
+.class-card-link:hover .class-card {
+    transform: scale(1.02); /* ホバー時に少し拡大 */
+    transition: transform 0.2s ease-in-out; /* アニメーションの設定 */
+}
+
+/* メインコンテンツのスタイル */
+main {
+    flex: 1; /* 残りのスペースを占有 */
+    background-color: #f5f5f5; /* 背景色 */
+    padding: 20px; /* 内側のパディング */
+    overflow-y: auto; /* 縦方向のスクロール */
+}
+
+/* サイドバーのスタイル */
+.sidebar {
+    width: 250px; /* サイドバーの幅 */
+    background-color: #fff; /* 背景色 */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* 影の設定 */
+    padding: 20px; /* 内側のパディング */
+    position: relative; /* 相対位置 */
+    height: 100%; /* 高さを親要素に合わせる */
+    overflow-y: auto; /* 縦方向のスクロール */
+}
+
+.sidebar h3 {
+    margin-top: 0; /* 上のマージンをリセット */
+}
+
+.sidebar ul {
+    list-style-type: none; /* リストスタイルをなしに */
+    padding: 0; /* 内側のパディングをリセット */
+}
+
+.sidebar ul li {
+    margin: 10px 0; /* アイテム間のマージン */
+}
+
+.sidebar ul li a {
+    text-decoration: none; /* リンクの下線をなしに */
+    color: #1a73e8; /* テキスト色 */
+    font-weight: 500; /* フォントの太さ */
+}
+
+.sidebar ul li a:hover {
+    text-decoration: underline; /* ホバー時に下線を追加 */
+}
+
+/* 全体のコンテナ */
+.container {
+    display: flex; /* Flexboxレイアウト */
+    height: calc(100vh - 64px); /* ヘッダーを除いた高さ */
+    overflow: hidden; /* 子要素のスクロールを制御 */
+}

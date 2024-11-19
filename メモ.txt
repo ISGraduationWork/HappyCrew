@@ -1,0 +1,10 @@
+導入フォルダー
+Graduation_work\venv_sqlite\app\
+
+導入ファイル
+Graduation_work\venv_sqlite2\app\reuquire.txt
+
+
+仮想環境入った後
+cd app
+pip install -r reuquire.txt

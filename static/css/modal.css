@@ -1,0 +1,68 @@
+/* modal.css */
+
+/* モーダル全体のスタイル */
+.modal {
+    display: none; /* モーダルを初期状態で非表示にします */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* 背景色と透明度を調整します */
+    border-radius: 8px;
+}
+
+/* モーダルコンテンツのスタイル */
+.modal-content {
+    background-color: #fefefe; /* モーダルの背景色を指定します */
+    margin: 15% auto; /* モーダルを中央に配置します（上下左右のマージンを調整可能） */
+    padding: 20px;
+    border: 1px solid #888; /* ボーダーのスタイルと色を指定します */
+    width: 80%; /* モーダルの幅を調整します */
+    width: 60%; /* モーダルの幅を調整 */ /* ※この行は前の行を上書きしているので意味がありません */
+    max-width: 400px; /* 最大幅を設定 */
+    border-radius: 8px;
+}
+
+/* 閉じるボタンのスタイル */
+.close {
+    color: #aaa; /* 閉じるボタンの色を指定します */
+    float: right;
+    font-size: 28px; /* 閉じるボタンのサイズを指定します */
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.close:hover,
+.close:focus {
+    color: black; /* マウスオーバー時やフォーカス時の色を指定します */
+    text-decoration: none;
+    cursor: pointer; /* マウスオーバー時のカーソル形状を指定します */
+    border-radius: 8px;
+}
+
+/* モーダルタイトルのスタイル */
+.modal-content h2 {
+    margin-bottom: 10px; /* タイトルの下のマージンを調整します */
+}
+
+/* フォームのスタイル */
+.modal-content form {
+    display: flex; /* フォームを横並びにします */
+    flex-direction: column; /* 縦方向に配置します */
+    border-radius: 8px;
+}
+
+/* フォームのラベルと入力フィールドのスタイル */
+.modal-content form label,
+.modal-content form input {
+    margin-bottom: 10px; /* ラベルと入力フィールドの間のマージンを調整します */
+    border-radius: 8px;
+}
+
+/* 送信ボタンのスタイル */
+.modal-content form .btn-submit {
+    align-self: flex-end; /* ボタンを右寄せに配置します */
+}

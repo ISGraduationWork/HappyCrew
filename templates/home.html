@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <!-- CSSファイルを読み込む -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/home.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/modal.css') }}"
+    />
+    <!-- Google Material Icons を読み込む -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <!-- ログインユーザーの名前を表示 -->
+        {% if current_user.is_authenticated %}
+        <a href="{{ url_for('home') }}" class="user-name">
+          <h2>Classroom [{{ current_user.name }}]</h2>
+        </a>
+        {% endif %}
+      </div>
+      <nav>
+        <ul>
+          <li>
+            <div class="add-class">
+              <!-- クラスを作成ボタン -->
+              <button class="add-class-btn" id="create-modal-btn">
+                <span class="material-icons">add</span>
+                <span>クラスを作成</span>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="container">
+      <aside class="sidebar">
+        <h3>クラス一覧</h3>
+        <ul>
+          {% for class_id in class_info %}
+          <li>
+            <a href="{{ url_for('class_detail', class_id=class_id[0]) }}"
+              >{{ class_id[2] }}</a
+            >
+          </li>
+          {% endfor %}
+        </ul>
+      </aside>
+
+      <main>
+        <div class="home-wrap">
+          <div class="classes-grid" id="classes-grid">
+            {% for class in class_info %}
+            <div
+              class="class-card"
+              data-href="{{ url_for('class_detail', class_id=class[0]) }}"
+              data-class-id="{{ class[0] }}"
+            >
+              <div class="class-header">
+                <h2>{{ class[2] }}</h2>
+                <p>担当: {{ class[3] }}</p>
+              </div>
+              <div class="class-actions" onclick="event.stopPropagation()">
+                <!-- イベント伝播を停止 -->
+                <!-- 編集ボタン -->
+                <button
+                  class="edit-class-btn"
+                  data-class-id="{{ class[0] }}"
+                  data-class-name="{{ class[2] }}"
+                  data-class-teacher="{{ class[3] }}"
+                >
+                  編集
+                </button>
+                <!-- 削除ボタン -->
+                <button class="delete-class-btn" data-class-id="{{ class[0] }}">
+                  削除
+                </button>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <footer>
+      <div class="home-html">
+        <!-- ログアウトボタン -->
+        {% if current_user.is_authenticated %}
+        <a href="{{ url_for('logout') }}" class="button logout-btn"
+          >ログアウト</a
+        >
+        {% else %}
+        <p>Unauthorized access.</p>
+        {% endif %}
+      </div>
+    </footer>
+
+    <!-- モーダルウィンドウのHTMLを読み込む -->
+    {% include 'modal.html' %}
+
+    <script>
+      document.querySelectorAll('.class-card').forEach(function(card) {
+        card.addEventListener('click', function() {
+          location.href = this.dataset.href;
+        });
+      });
+    </script>
+    <!-- モーダルウィンドウを制御するJavaScriptを読み込む -->
+    <script src="{{ url_for('static', filename='js/modal.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/home.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+  </body>
+</html>
